@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ニーバーの仕分け</title>
+    <style>
+        body {
+            background-color: #EEFFFF;
+        }
+         h1   {
+            color: red;
+            font-size:xx-large;
+            font-weight:300;
+            font-family:sans-serif;
+    	}
+         h2   {
+            font-size: 120%; 
+            font-family:sans-serif;
+    	}
+    </style>
+</head>
+<body>
+<h1><strong>ニーバーの仕分け</strong></h1>
+<h2>～問題を細かく分けて、変えることのできるもの/できないものに振り分ける～</h2><br>
+<div>
+<a href="/form">新規作成</a>
+</div>
+<ul>
+	<li th:each="blog : ${blogs}" th:object="${blog}">
+    <table border="1">
+   	<thead>
+		<tr>
+	    	<th bgcolor="#000099"><font color="#FFFFFF">問題の部分</font></th>
+	    	<th bgcolor="#000099" width="175"><font color="#FFFFFF">変えやすさ（可変度）</font></th>
+	    	<th bgcolor="#000099" width="225"><font color="#FFFFFF">変えやすさ（可変度）の根拠</font></th>
+		</tr>
+    </thead>
+    <tbody>
+    	<tr>
+            <th><a th:href="@{|/blog/*{id}|}" th:text="*{title}">問題の部分</a></th>
+            <th><span th:text="*{variability}">変えやすさ（可変度）</span></th>
+	    	<th><span th:text="*{grounds}">変えやすさ（可変度）の根拠</span></th>
+		</tr>
+    </tbody>
+    </table>
+    </li>
+</ul><br><br><br>
+<div class="photo1">
+<img src="/img/gomi.png">
+</div><br>
+<div>
+このツールを使うにあたってのヒント：<br>
+       ・問題はより細かく細分化するほど、変えやすい部分を見つけやすい。<br>
+       ・まずは問題を大雑把に分けておき、後でやり直すといい。<br>
+       ・可変度がゼロか低いものは、（少なくとも当面は）受け入れるしかない<br>
+       ・変わらないことを前提に、他の部分に手をつけることを考える。<br>
+       ・可変度の高いものから、問題解決にとりかかる。<br>
+       ・いくつかの問題の部分に手をつけた後や、時間が経った後に、もう一度この表を作り直してみる。<br>
+       ・改めて問題に取り組んでみると、さらに細分化できることが多い。<br>
+       ・細分化が進むと、かつて変えられないと思えたものの一部に、いくらか変えやすい部分が発見できる。<br>
+    </div>
+<p>
+<a href="/top">トップに戻る</a>
+</p>
+</body>
+</html>

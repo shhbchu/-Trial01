@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ニーバーの仕分け</title>
+    <style>
+        body {
+            background-color: #EEFFFF;
+        }
+        p  {
+            font-size:x-large;
+            font-weight:900;
+            font-family:sans-serif;
+    	}
+    </style>
+</head>
+<body>
+<div th:object="${blog}">
+    <p>
+        問題の部分：<span th:text="*{title}"></span>
+    </p>
+    <p>
+        変えやすさ（可変度）：<span th:text="*{variability}"></span>
+    </p>
+    <p>
+        変えやすさ（可変度）の根拠：<span th:text="*{grounds}"></span>
+    </p>
+</div><br>
+<div>
+このツールの目的：<br>
+       ・問題はより細かく細分化するほど、変えやすい部分を見つけやすい。<br>
+       ・まずは問題を大雑把に分けておき、後でやり直すといい。<br>
+       ・可変度がゼロか低いものは、（少なくとも当面は）受け入れるしかない<br>
+       ・変わらないことを前提に、他の部分に手をつけることを考える。<br>
+       ・可変度の高いものから、問題解決にとりかかる。<br>
+       ・いくつかの問題の部分に手をつけた後や、時間が経った後に、もう一度この表を作り直してみる。<br>
+       ・改めて問題に取り組んでみると、さらに細分化できることが多い。<br>
+       ・細分化が進むと、かつては変えられないと思えたものの一部に、いくらか変えやすい部分が発見できる。<br><br><br>
+他のツールとの連動：<br>
+       ・解決策を実行するには→<a href="/index4">ぐずぐず主義克服シート</a><br>
+       ・解決策を探しあてるには→<a href="/index6">スケーリング・クエスチョン</a><br>
+       ・問題がわからない場合には→<a href="/index5">ミラクル・クエスチョン</a><br>
+    </div><br><br>
+<p>
+<a href="/">戻る</a>
+</p>
+</body>
+</html>

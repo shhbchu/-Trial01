@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>入力フォーム</title>
+    <style>
+        body {
+            background-color: #EEFFFF;
+        }
+    </style>
+</head>
+<body>
+<form action="/create" method="post" th:object="${blog}">
+ 	<div>
+ 	<b>次の欄に入力しなさい</b><br>
+ 	</div>
+    <div>
+              1　細分化した問題の部分を一つ入力しなさい<br>
+	<input type="text" th:field="*{title}"/>
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">入力エラー</span>
+    </div>
+    <div>
+              2　変えやすさ（可変度）を点数づけしなさい。(0～9まで)<br>
+	<input type="number" th:field="*{variability}" />
+        <span th:if="${#fields.hasErrors('variability')}" th:errors="*{variability}">入力エラー</span>
+    </div>
+    <div>
+             3　変えやすさ（可変度）の根拠を入力しなさい。<br>
+	<input type="text" th:field="*{grounds}"/>
+        <span th:if="${#fields.hasErrors('grounds')}" th:errors="*{grounds}"> 入力エラー</span>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form><br><br><br><br>
+	<div>
+	入力にあたって：<br>
+	●変えやすさ（可変度）とは？<br>
+	→自分の行動を変えるための難易度に応じて、数値をつけていく<br>
+	０（絶対に変えられない）<br>
+	１（ほぼ変えられない）<br>
+	２（変えるのは難しい）<br>
+	３（変えるのはちょっと難しい）<br>
+	４（変えられるかもしれない）<br>
+	５（がんばれば変えられる）<br>
+	６（ちょっとがんばれば変えられる）<br>
+	７（変えられる）<br>
+	８（簡単に変えられる）<br>
+	９（今すぐ変えられる）<br>
+	</div><br><br>	
+<p>
+<a href="/">前のページに戻る</a>
+</p>
+</body>
+</html>
